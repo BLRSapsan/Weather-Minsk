@@ -13,7 +13,7 @@ fun HomeScreen(
         is JgheUIState.Loading -> LoadingScreen(modifier = modifier)
         is JgheUIState.Error -> ErrorScreen(retryAction = retryAction, modifier = modifier)
         is JgheUIState.List -> MainScreen(
-            dataResponse = jgheUIState.dataResponse,
+            domainResponse = jgheUIState.domainResponse,
             modifier = modifier
         )
     }

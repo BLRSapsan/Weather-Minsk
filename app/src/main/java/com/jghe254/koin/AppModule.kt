@@ -1,6 +1,8 @@
 package com.jghe254.koin
 
 import com.jghe254.data.Api
+import com.jghe254.data.DataSource
+import com.jghe254.data.DataSourceImpl
 import com.jghe254.data.RepositoryImpl
 import com.jghe254.data.getApi
 import com.jghe254.domain.Repository
@@ -11,5 +13,6 @@ import org.koin.dsl.module
 val AppModule = module {
     viewModel { JgheViewModel(get()) }
     single<Repository> { RepositoryImpl(get()) }
+    single<DataSource> { DataSourceImpl(get()) }
     single <Api> { getApi() }
 }

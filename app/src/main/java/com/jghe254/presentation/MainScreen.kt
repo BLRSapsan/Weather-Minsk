@@ -7,13 +7,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.jghe254.R
-import com.jghe254.data.model.DataResponse
+import com.jghe254.domain.model.DomainResponse
 import com.jghe254.presentation.components.DownloadImages
 import com.jghe254.presentation.components.ItemText
 import com.jghe254.presentation.components.MainScreenAnimation
 
 @Composable
-fun MainScreen(dataResponse: DataResponse, modifier: Modifier) {
+fun MainScreen(domainResponse: DomainResponse, modifier: Modifier) {
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.Top,
@@ -21,44 +21,44 @@ fun MainScreen(dataResponse: DataResponse, modifier: Modifier) {
     ) {
         ItemText(
             label = stringResource(id = R.string.city),
-            value = dataResponse.name,
+            value = domainResponse.name,
             signature = null
         )
         ItemText(
             label = stringResource(id = R.string.temp),
-            value = dataResponse.main.temp.toString(),
+            value = domainResponse.temp,
             signature = stringResource(
                 id = R.string.celsius
             )
         )
         ItemText(
             label = stringResource(id = R.string.temp_feels_like),
-            value = dataResponse.main.feels_like.toString(),
+            value = domainResponse.feels_like,
             signature = stringResource(
                 id = R.string.celsius
             )
         )
         ItemText(
             label = stringResource(id = R.string.pressure),
-            value = dataResponse.main.pressure.toString(),
+            value = domainResponse.pressure,
             signature = stringResource(id = R.string.unit_pressure)
         )
         ItemText(
             label = stringResource(id = R.string.humidity),
-            value = dataResponse.main.humidity.toString(),
+            value = domainResponse.humidity,
             signature = stringResource(id = R.string.unit_humidity)
         )
         ItemText(
             label = stringResource(id = R.string.speed),
-            value = dataResponse.wind.speed.toString(),
+            value = domainResponse.speed,
             signature = stringResource(id = R.string.unit_speed)
         )
         ItemText(
             label = stringResource(id = R.string.description),
-            value = dataResponse.weather[0].description,
+            value = domainResponse.description,
             signature = null
         )
-        DownloadImages(icon = dataResponse.weather[0].icon)
+        DownloadImages(icon = domainResponse.icon)
         MainScreenAnimation(modifier = modifier)
     }
 }
