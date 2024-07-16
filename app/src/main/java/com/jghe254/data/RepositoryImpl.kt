@@ -13,13 +13,13 @@ class RepositoryImpl(private val dataSource: DataSource) : Repository {
     }
 }
 
-fun DataResponse.toDomain(dataResponse: DataResponse) = DomainResponse(
-    name = dataResponse.name,
-    temp = dataResponse.main.temp.toString(),
-    feels_like = dataResponse.main.feels_like.toString(),
-    pressure = dataResponse.main.pressure.toString(),
-    humidity = dataResponse.main.humidity.toString(),
-    speed = dataResponse.wind.speed.toString(),
-    description = dataResponse.weather[0].description,
-    icon = dataResponse.weather[0].icon
+fun DataResponse.toDomain() = DomainResponse(
+    name = name,
+    temp = main.temp.toString(),
+    feels_like = main.feels_like.toString(),
+    pressure = main.pressure.toString(),
+    humidity = main.humidity.toString(),
+    speed = wind.speed.toString(),
+    description = weather[0].description,
+    icon = weather[0].icon
 )

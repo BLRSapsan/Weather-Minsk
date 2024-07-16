@@ -30,7 +30,7 @@ class JgheViewModel(private val repository: Repository) : ViewModel() {
             val result = repository.getResponse()
             result.fold(
                 onSuccess = { data ->
-                    mutableJgheUIState = JgheUIState.List(domainResponse = data.toDomain(data))
+                    mutableJgheUIState = JgheUIState.List(domainResponse = data.toDomain())
                 },
                 onFailure = { mutableJgheUIState = JgheUIState.Error })
         }
