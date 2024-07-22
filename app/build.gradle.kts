@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.jghe254"
+    namespace = "com.weatherMinsk"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.jghe254"
+        applicationId = "com.weatherMinsk"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
